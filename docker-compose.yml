@@ -1,0 +1,31 @@
+version: "3"
+services:
+  # Postgres DB
+  postgres:
+    image: postgres:16.2-alpine3.19
+    restart: always
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: testdb
+    ports:
+      - 5432:5432
+    networks:
+      - deals-app
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      deals-app:
+
+networks:
+  deals-app:
+volumes:
+  postgres-data:
