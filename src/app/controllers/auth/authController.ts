@@ -5,9 +5,15 @@ function authControllers() {
         // signup
         async signUp(req: Request, res: Response) {
             try {
-                console.log(req.body);
-                
                 const result = await signUp_func(req.body)
+                return res.status(200).json(result)
+            } catch (err: any) {
+                return res.status(500).json({ success: false, message: err.message })
+            }
+        },
+        async signIn(req: Request, res: Response) {
+            try {
+
             } catch (err: any) {
                 return res.status(500).json({ success: false, message: err.message })
             }
