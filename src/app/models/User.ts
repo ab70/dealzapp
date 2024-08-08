@@ -2,7 +2,7 @@ import { DataTypes, Model, Optional } from 'sequelize';
 import sequelize from '../db/database';
 import Vendor from './Vendor';
 
-interface UserAttributes {
+export interface UserAttributes {
     id: number;
     username: string;
     email: string;
